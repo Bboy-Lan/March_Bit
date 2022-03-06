@@ -35,3 +35,74 @@ int main()
 
 	return 0;
 }
+
+
+
+
+int main()
+{
+	// 1!+2!+3!+...+n!
+	int j, i;
+	int ret = 1;
+	int sum = 0;
+	//scanf("%d", &n);//4
+
+
+	for (j = 1; j <= 3; j++)
+	{
+		ret = 1;//这里犯的错误和之前一样 二次使用某个变量时并没观察残余值是否清除干净
+
+		for (i = 1; i <= j; i++)//计算某个数的阶乘
+		{
+			ret *= i;
+		}
+		sum += ret;
+	}
+	printf("%d ", sum);
+
+	return 0;
+}
+
+
+//输入：
+//5
+//1 1 2 1 3
+//1
+//输出：
+//3
+
+int main()
+{
+	int n;
+	int x;
+	int i = 0;
+	int j = 0;
+	int arr[100];
+	int sum = 0;
+
+	scanf("%d", &n);//输入一个数n
+
+	//while (n > 0)//第二行输入n个空格隔开的数
+	//{
+	//	scanf("%d ", &arr[n - 1]);
+	//	n--;
+	//}
+
+	for (j = 0; j < n; j++)
+	{
+		scanf("%d ", &arr[j]);
+	}
+	scanf("%d", &x);
+
+
+	for (i = 0; i < n; i++)//循环n次
+	{
+		if (arr[i] == x)//判断有是否相同的数
+		{
+			sum = sum + 1;
+		}
+	}
+
+	printf("%d\n", sum);//为啥最后输出是0 
+	return 0;
+}
