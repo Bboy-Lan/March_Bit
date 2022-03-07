@@ -1,28 +1,38 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include<stdio.h>
-// for 循环 --初始化 判断 调整
+#include<stdlib.h>
+#include<string.h>
+#include<windows.h>
 
-
-	//有序数组中查找某一个数-----> 二分（拆半）查找
 
 int main()
 {
+	int i = 0;
+	printf("请输入密码登录: ");
+	do
+	{
+		char input[20];
+		scanf("%s",&input);
+		if (strcmp(input , "wanglan") == 0)//比较字符串用这个 返回值为0则为真
+		{
+			printf("密码正确\n");
+			break;
+		}
+		else
+			printf("密码错误\n");
+		i++;
 
-
-	// 1/1-1/2+1/3-1/4+1/5 …… + 1/99 - 1/100 的值，打印出结果
-
-
-
-
-
-	return 0;
+	} while (i<3);
+	if(3 == i)
+		printf("密码连续错误三次\n");
 }
 
 
 
 
 
+// for 循环 --初始化 判断 调整
 
 //int main()
 //{

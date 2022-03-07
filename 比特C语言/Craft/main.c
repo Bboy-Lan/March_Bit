@@ -1,15 +1,147 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<windows.h>
 
 
-<<<<<<< HEAD
+
+
+
+
+int main()
+{
+    //´òÓ¡ 9 * 9³Ë·¨±í
+
+    //1*1 
+    //1*2 2*2
+    //1*3 2*3 3*3
+    //...
+    //1*9 2*9 3*9 .... 9*9
+
+    int i, j;
+
+    for (i = 1; i < 10; i++)//´òÓ¡9ĞĞ -Ñ­»· 9 ´Î
+    {
+        for (j = 1; j <= i; j++)
+        {
+            printf("%d*%d=%d ", j, i, i * j);
+        }
+        printf("\n");
+
+    }
+
+    return 0;
+}
+
+
+
+int main()
+{
+    //goto Óï¾äÒ»°ã²»ÔõÃ´Ê¹ÓÃ µ«ÊÇÔÚĞèÒªÌø³ö¶à²ãÇ¶Ì×Ñ­»·µÄÊ±ºòºÜÓĞÓÃ
+
+    // Ğ´Ò»¸ö¹Ø»ú³ÌĞò
+
+    do
+    {
+        char input[20];
+    again:
+
+        printf("µçÄÔ½«ÔÚ1·ÖÖÓÄÚ¹Ø»ú£¬ÊäÈë¡°ÎÒÊÇÖí¡±¼´¿ÉÈ¡Ïû£º ");
+        system("shutdown -s -t 60");
+        scanf("%s", input);
+        if (strcmp(input, "ÎÒÊÇÖí") == 0)
+        {
+            system("shutdown -a");
+            printf("¹Ø»ú²Ù×÷ÒÑ×¢Ïú \n");
+            break;
+        }
+        else
+            printf("ÊäÈë´íÎó\n");
+        goto again;
+
+    } while (1);
+    return 0;
+}
+
+
+
+
+
+//±àĞ´´úÂë ÑİÊ¾¶à¸ö×Ö·û´ÓÁ½¶ËµãÒÆ¶¯£¬ÏòÖĞ¼ä»ã¾Û
+
+int main()
+{
+    char arr1[20] = { "##################" };
+    char arr2[20] = { "-> hello__world <-" };
+
+    //ÏÈÇó³ö×Ö·û´®µÄ³¤¶È
+
+    int sz = strlen(arr1);
+    int left = 0;
+    int right = sz-1;//¼ÇµÃ¼õ1 °¡ Êı×éÊ±¿Ì¼Ç×¡£¡£¡£¡
+
+    while (left <= right)
+    {
+        arr1[left] = arr2[left];
+        arr1[right] = arr2[right];
+        left++;
+        right--;
+
+        printf("%s\n", arr1);
+        Sleep(500);
+        system("cls");
+
+    }
+
+    printf("%s\n", arr1);
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+// 1/1-1/2+1/3-1/4+1/5 ¡­¡­ + 1/99 - 1/100 µÄÖµ£¬´òÓ¡³ö½á¹û
+
+int main()
+{
+   
+    int i, j;
+    double sum = 0.0;
+    for (i = 2, j = 1; i <= 100 && j <= 99; i += 2, j += 2)
+    {
+        sum += 1.0 / j - 1.0 / i;
+    }
+    printf("%f", sum);
+
+
+    return 0;
+}
+
+int  main()
+{
+    int i = 0;
+    double sum = 0.0;
+    int flag = 1;
+    for (i = 1; i <= 100; i++)
+    {
+        sum += flag * 1.0 / i;
+        flag = -flag;
+    }
+    printf("%lf\n", sum);
+    return 0;
+}
 
 
 
 //¼ÆËã nµÄ½×³Ë
 //1!+2!+...+10!
-
 
 
 
@@ -65,7 +197,7 @@ int main()
 
 
     //¶Ô³ÆÊıÓ¦¸ÃÔõÑùÅĞ¶¨?
-    int arr[1000] = {};
+    int arr[1000];
 
 
     //ÀıÈç 12321ÊÇ¶Ô³ÆÊı£¬Êä³öyes£¬124421ÊÇ¶Ô³ÆÊı£¬Êä³öyes£¬1231²»ÊÇ¶Ô³ÆÊı£¬Êä³öno
@@ -91,9 +223,6 @@ int main()
 
 
 // ÕâÀï×Ô¼º×¢Òâ Ğ´Á¬Ğø²»µÈÊ½±ØĞë½èÖú  &&-Âß¼­Óë
-=======
-// è¿™é‡Œè‡ªå·±æ³¨æ„ å†™è¿ç»­ä¸ç­‰å¼å¿…é¡»å€ŸåŠ©  &&-é€»è¾‘ä¸
->>>>>>> 65fb03c213b5557024286542bc6d842f1fdcac89
 int main()
 {
     int sort;
@@ -115,11 +244,8 @@ int main()
 }
 
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 65fb03c213b5557024286542bc6d842f1fdcac89
 int main()
 {
     int n;
@@ -129,9 +255,8 @@ int main()
     int arr[100];
     int sum = 0;
 
-    scanf("%d", &n);//è¾“å…¥ä¸€ä¸ªæ•°n
+    scanf("%d", &n);//ÊäÈëÒ»¸öÊın
 
-<<<<<<< HEAD
     //while (n > 0)//µÚ¶şĞĞÊäÈën¸ö¿Õ¸ñ¸ô¿ªµÄÊı
     //{
     //	scanf("%d ", &arr[n - 1]);
@@ -139,28 +264,21 @@ int main()
     //}
 
     for (j = 0; j < n; j++)
-=======
-    while (n > 0)//ç¬¬äºŒè¡Œè¾“å…¥nä¸ªç©ºæ ¼éš”å¼€çš„æ•°
->>>>>>> 65fb03c213b5557024286542bc6d842f1fdcac89
     {
         scanf("%d ", &arr[j]);
     }
     scanf("%d", &x);
 
 
-    for (i = 0; i < n; i++)//å¾ªç¯næ¬¡
+    for (i = 0; i < n; i++)//Ñ­»·n´Î
     {
-        if (arr[i] == x)//åˆ¤æ–­æœ‰æ˜¯å¦ç›¸åŒçš„æ•°
+        if (arr[i] == x)//ÅĞ¶ÏÓĞÊÇ·ñÏàÍ¬µÄÊı
         {
             sum = sum + 1;
         }
     }
-<<<<<<< HEAD
 
     printf("%d\n", sum);//ÎªÉ¶×îºóÊä³öÊÇ0 
-=======
-    printf("%d\n", sum);//ä¸ºå•¥æœ€åè¾“å‡ºæ˜¯0 
->>>>>>> 65fb03c213b5557024286542bc6d842f1fdcac89
     return 0;
 }
 
@@ -195,7 +313,7 @@ int main()
 
 int main()
 {
-    //æ•´æ•°èƒ½å¦è¢« 5æ•´é™¤  % ä½™æ•°ç­‰äº0
+    //ÕûÊıÄÜ·ñ±» 5Õû³ı  % ÓàÊıµÈÓÚ0
     int M;
     scanf("%d\n", &M);
     if (M % 5 == 0)
@@ -204,6 +322,8 @@ int main()
         printf("NO");
     return 0;
 }
+
+
 
 
 
@@ -217,5 +337,5 @@ int main()
 	int x, y;
 	scanf("%d%d", &x, &y);
 	int com = Com(x, y);
-	printf("è¾ƒå¤§çš„æ•°: %d\n", com);
+	printf("½Ï´óµÄÊı: %d\n", com);
 }

@@ -106,3 +106,137 @@ int main()
 	printf("%d\n", sum);//为啥最后输出是0 
 	return 0;
 }
+
+
+
+//有序数组中查找某一个数-----> 二分（拆半）查找
+
+
+int main()
+{
+	int i, k = 6;
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	//遍历查找
+	int sz = sizeof(arr) / sizeof(arr[0]);//一种数组元素表示方法
+
+	for (i = 0; i < sz; i++)
+	{
+		if (k == arr[i])//在这里找到了 跳出循环
+			break;
+	}
+	if (i == sz)
+		printf("找不到\n");
+	else
+		printf("找到了:%d\n", i);
+	return 0;
+}
+
+
+            //二分查找
+
+int main()
+{
+	int k = 6;
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	//int mid = sz / 2;  这一步不需要
+	int left = 0;
+	int right = sz - 1;//不是 sz
+
+
+	while (left <= right)
+	{
+		int mid = (left + right) / 2;
+		if (k < arr[mid])
+		{
+			right = mid - 1;
+		}
+		else if (k > arr[mid])
+		{
+			left = mid + 1;
+		}
+		else
+		{
+			printf("找到了: % d\n", mid);
+			break;
+		}
+
+	}
+	if (left > right)
+		printf("找不到");
+
+	return 0;
+
+}
+
+               //写一个猜数字游戏
+
+#include<windows.h>
+#include<time.h>
+#include<stdlib.h>
+
+
+void menu()//菜单
+{
+	printf("####################\n");
+	printf("##### 0. PLAY ######\n");
+	printf("##### 1. EXIT ######\n");
+	printf("####################\n");
+}
+
+void game()//猜数字游戏的逻辑函数
+{
+	// 1.生成随机数 (1-100)
+	int num1, num2;
+	//传值为空表示不想用这个变量
+	num1 = rand() % 100;//模上100 余数只能是100以内的数 不可能超过100
+
+	// 2.猜数字
+	while (1)
+	{
+		scanf("%d", &num2);
+		if (num1 > num2)
+			printf("猜小了\n");
+		else if (num1 < num2)
+			printf("猜大了\n");
+		else
+		{
+			printf("恭喜你猜对了\n");
+			system("cls");
+			break;
+		}
+
+	}
+
+}
+
+int main()
+{
+	int input = 0;
+	//用时间戳的变化做随机值
+	srand((unsigned int)time(NULL));
+	//随机数的生成起点的时候整个程序只需要一次不用频繁生成 否则会出现重复的问题
+
+	do
+	{
+		menu();//一个基本菜单
+		scanf("%d", &input);
+
+		switch (input)
+		{
+		case 0:
+			printf("退出游戏\n");
+			break;
+		case 1:
+			printf("随机数 ：");
+			game();//游戏函数
+			break;
+		default:
+			printf("输入有误，重新选择\n");
+			break;
+		}
+
+	} while (input);
+	return 0;
+}
