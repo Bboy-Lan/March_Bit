@@ -6,7 +6,38 @@
 #include<windows.h>
 
 
+	//求10 个整数中最大值
+	// 写三个整数 将其按从 大到小 输出
+int main()
+{
+	int a, b, c;
+	//规定最大的数是a 
+	scanf("%d%d%d", &a, &b, &c);
+	// 比较 将最大的值给a
+	int tmp = 0;
 
+	if (a < b)
+	{
+		tmp = a;
+		a = b;
+		b = tmp;
+	}
+	if (a < c)
+	{
+		tmp = a;
+		a = c;
+		c = tmp;
+	}
+	if (b < c)
+	{
+		tmp = b;
+		b = c;
+		c = tmp;
+	}
+	printf("%d>%d>%d\n", a, b, c);//打印
+
+	return 0;
+}
 
 
 

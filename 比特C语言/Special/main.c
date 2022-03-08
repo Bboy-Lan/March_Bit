@@ -240,3 +240,77 @@ int main()
 	} while (input);
 	return 0;
 }
+
+
+
+//求两个数最大公约数
+
+int main()
+{
+	//可以整除这几个数中的最大的数 如18和24的公约数 2，3，6三个，其中以6为最大，6就是18和24的最大公约数
+
+	//暴力求解 
+	int a, b, i;
+	scanf("%d%d", &a, &b);
+	int m = (a > b ? b : a);
+
+	while (1)
+	{
+		if (a % m == 0 && b % m == 0)
+		{
+			printf("%d\n", m);
+			break;
+		}
+		m--;
+	}
+	return 0;
+}
+
+
+//辗转相除法求最大公约数
+
+int main()
+{
+	int m, a, b;
+	scanf("%d%d", &a, &b);
+
+	while (m = a % b)
+	{
+		a = b;
+		b = m;
+
+	}
+	printf("%d\n", b);
+	return 0;
+}
+
+
+
+//打印素数--什么是素数
+//质数 只能被 1 和其自身整除
+
+//那就将 2 ~ i-1 的数去试除 i 看其能否被整除  不能拿比他大的数 哈哈
+
+// 如果 有 m =a*b  a b 之间至少一个数 <= 开平方m  sqrt(m)
+
+//偶数不可能是素数 除了2 
+
+int main()
+{
+	int i, j;
+	for (i = 101; i <= 200; i+=2)//写成奇数 3
+	{
+		int ret = 1;//位置不要放错了 在外面就是另一个结果
+		for (j = 2; j <= i - 1; j++)//试除  这里i-1 可以换做 sqrt(i) 1
+		{
+			if (i % j == 0)//说明能被整除
+			{
+				ret = 0;
+				break;//再次优化 2
+			}
+		}
+		if (ret == 1)
+			printf("%d ", i);
+	}
+	return 0;
+}
