@@ -314,3 +314,67 @@ int main()
 	}
 	return 0;
 }
+
+
+//写个函数 表示整形有序数组二分查找
+
+int distinguish(int k,int arr[],int sz)//可以改成 传 左右
+{
+	int left=0;
+	int right=sz-1;//函数这里并不是极简 还需要进一步简化
+
+	while (left <= right)
+	{
+		int mid = (left + right) / 2;
+		if (k < arr[mid])
+		{
+			right = mid - 1;
+		}
+		else if (k > arr[mid])
+		{
+			left = mid + 1;
+		}
+		else
+			return mid;
+	}
+	if (left > right)
+		return 0;
+}
+int main()
+{
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int k=7;//需要查找下标的数
+	int sz = sizeof(arr) / sizeof(arr[0]);
+
+	int num = distinguish(k,arr,sz);//这里注意预先需要传入函数的值
+	if (num == 0)
+		printf("没找到");
+	else
+	{
+		printf("找到了: %d\n", num);
+	}
+	return 0;
+}
+
+
+//编写函数 不允许创建临时变量 求字符串长度
+
+int my_strlen(char* s)//首地址传过来
+{
+
+	if (*s != '\0')//h e l l o
+	{
+		return 1 + my_strlen(s + 1);//数组中地址是顺序排列的
+	}
+	else
+		return 0;
+
+}
+int main()
+{
+
+	char arr[] = "hello";
+	int num = my_strlen(arr);
+	printf("%d", num);
+	return 0;
+}
