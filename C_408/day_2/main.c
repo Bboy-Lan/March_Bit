@@ -2,14 +2,62 @@
 #include<stdio.h>
 
 
+//对称数 -反转之后还和以前正序相等
 
 int main()
 {
 	int a;
-	scanf("%d", &a);//char 类型的时候 最好不要尝试用 %d
-	printf("%c\n", a);
+	int b=0;
+	scanf("%d", &a);
+	int c = a;
+	while (a)
+	{
+		b = b * 10 + a % 10;//多了解下这里 *10的操作
+		a /= 10;
+
+	}
+	if (c == b)//注意上面值的修改下面使用的时候会出错
+		printf("yes\n");
+	else
+		printf("no\n");
 	return 0;
 }
+
+
+
+//int main()
+//{
+//	int i,total;
+//	for (i = 1, total = 0; i <= 100; i++);
+// //如果在这里打上分号 不会死循环但是不会执行下面的代码 只会在这一行结束之后 开始下一条语句
+//	{
+//		total += i;
+//
+//	}
+//	printf("%d\n", total);//101
+//	return 0;
+//}
+
+
+
+//算术运算符优先级 > 关系运算符 > 逻辑运算符---其中逻辑非优先级最高
+
+//int main()
+//{
+//	int a;
+//	
+//	printf("%d\n", 5>3 && 8<4-!0);//0
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int a;
+//	scanf("%d", &a);//char 类型的时候 最好不要尝试用 %d
+//	printf("%c\n", a);
+//	return 0;
+//}
 
 
 

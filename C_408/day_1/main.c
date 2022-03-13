@@ -11,18 +11,18 @@
 
 
 //多种数据类型 混合输入
-//int main()
-//{
-//	int i;
-//	char j;
-//	float k;
-//
-//	int ret = scanf("%d %c%f", &i, &j, &k);//%c 不会跳过空格和\n 
-//	//混合输入时遇见%c 需要加上一个空格
-//	printf("i=%d j=%c k=%f", i, j, k);
-//	
-//	return 0;
-//}
+////int main()
+////{
+////	int i;
+////	char j;
+////	float k;
+////
+////	int ret = scanf("%d %c%f", &i, &j, &k);//%c 不会跳过空格和\n 
+////	//混合输入时遇见%c 需要加上一个空格
+////	printf("i=%d j=%c k=%f", i, j, k);
+////	
+////	return 0;
+////}
 
 
 
@@ -45,7 +45,7 @@
 //int main()
 //{
 //	int i;
-//	while (rewind(stdin),(scanf("%d", &i)) != EOF)//当你的 用字符时 会死循环打印
+//	while (rewind(stdin),(scanf("%d", &i)) != EOF)//当你的	输入用字符时 会死循环打印
 //	{
 //		printf("i =%d ", i);
 //	}
