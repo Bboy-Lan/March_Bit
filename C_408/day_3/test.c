@@ -29,34 +29,35 @@ int main()
 	return 0;
 }
 
-//int main()
-//{
-//	//修改数组中字符串的内容 把首字母变大写
-//	char arr[10] = "hello";
-//	arr[0] = arr[0] - 32;
-//	printf("%c\n", arr[0]);
-//
-//
-//	return 0;
-//}
+int main()
+{
+	//修改数组中字符串的内容 把首字母变大写
+	char arr[10] = "hello";
+	arr[0] = arr[0] - 32;
+	printf("%c\n", arr[0]);
+
+
+	return 0;
+}
 
 
 //字符数组-传递不需要像整形数组一样传递长度
-//void print1(char arr[])
-//{
-//	int i = 0;//因为可以通过判断 \0 来进一步确定长度
-//	//但是必须保证不访问越界 也就是初始化值要大一点
-//	while (arr[i] != '\0')
-//	{
-//		printf("%c", arr[i]);
-//		i++;
-//	}
-//}
-//
-//int main()
-//{
-//	char arr[10] = "hello";
-//	print1(arr);
-//
-//	return 0;
-//}
+
+void print1(char arr[])
+{
+	int i = 0;//因为可以通过判断 \0 来进一步确定长度
+	//但是必须保证不访问越界 也就是初始化值要大一点
+	while (arr[i] != '\0')
+	{
+		printf("%c", arr[i]);
+		i++;
+	}
+}
+
+int main()
+{
+	char arr[10] = "hello";
+	print1(arr);
+
+	return 0;
+}
