@@ -235,3 +235,115 @@ int main()
 		printf("找不到\n");
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+typedef int Elemtype;
+#define MaxSize 50
+//1. 定义一个结构体
+typedef struct
+{
+	Elemtype date[MaxSize];//定义数组
+	Elemtype length;//顺序表长度-即元素个数
+
+}SqList;
+//打印操作
+void ListPrint(SqList& L)
+{
+	for (int i = 0; i < L.length; i++)
+	{
+		printf("%-3d", L.date[i]);
+	}
+	printf("\n");
+}
+
+//插入操作
+bool ListInsert(SqList& L, Elemtype i, Elemtype e)
+{
+	if (i < 1 || i >L.length + 1)//判断是否合规
+		return false;
+	if (i > MaxSize)
+		return false;
+
+	//插入操作--前面的值往后覆盖赋值 i=i-1
+	for (int j = L.length; j >= i; j--)
+	{
+		L.date[j] = L.date[j - 1];
+	}
+	L.date[i - 1] = e;
+	L.length++;
+	return true;
+}
+
+//删除操作
+bool ListDelete(SqList& L, Elemtype i)
+{
+	if (i < 1 || i >L.length + 1)//判断是否合规
+		return false;
+	if (L.length == 0)
+		return false;
+
+	//删除操作--后面的值往前赋值 i-1=i
+	//需要先将该位置的元素进行删除
+	//e = L.date[i - 1];
+	for (int j = i; j <= L.length; j++)
+	{
+		L.date[j - 1] = L.date[j];
+	}
+	L.length--;
+	return true;
+}
+
+//查找操作
+Elemtype ListSearch(SqList L, Elemtype a)
+{
+	for (int i = 0; i < L.length; i++)
+	{
+		if (L.date[i] == a)
+			return i + 1;//表示第几个元素
+	}
+	return 0;
+}
+
+
+//顺序表-插入与删除操作
+int main()
+{
+	SqList L;
+	L.date[0] = 8;//初始化顺序表
+	L.date[1] = 7;
+	L.date[2] = 6;
+	L.date[3] = 5;
+	L.date[4] = 4;
+	L.length = 5;
+
+	bool ret;
+	//插入操作
+	ret = ListInsert(L, 3, 55);//对第哪个元素改成多少
+	ListPrint(L);
+
+	//删除操作
+	ret = ListDelete(L, 2);
+	ListPrint(L);
+
+	//查找操作
+	int num = ListSearch(L, 5);
+	if (num)
+		printf("找到了:%d\n", num);
+	else
+		printf("没找到\n");
+	return 0;
+}
