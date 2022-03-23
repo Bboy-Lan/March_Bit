@@ -79,7 +79,7 @@ LNode* CreatList2(LinkList& L)
 	return L;
 }
 
-//查找操作-按顺序、按值
+//查找操作-按顺序查询
 LinkList GetElem(LinkList L, ElemType i)//按顺序查询
 {
 	int j = 1;
