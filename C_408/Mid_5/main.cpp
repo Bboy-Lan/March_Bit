@@ -127,7 +127,11 @@ bool ListDelete(LinkList L, Elemtype i)
 	LinkList p = GetElem(L, i - 1);
 	if (p == NULL)
 		return false;
+
 	LinkList q = p->next;
+
+	if (q == NULL)
+		return false;//都需要判断是否为空指针
 
 	p->next = q->next;
 	free(q);//将不需要的释放
