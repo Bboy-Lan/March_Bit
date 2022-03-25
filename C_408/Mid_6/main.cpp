@@ -2,8 +2,13 @@
 #include<stdio.h>
 #include <corecrt_malloc.h>
 
+//注意：为什么后面的操作都没有& 引用  只有当需要改变头结点的时候才需要引用 只要不改变头结点就不需要进行引用 
+//这里就算没有引用注意也是 传址调用 因为它是指针类型 的变量
+
 
 //双向链表--弥补了单向链表不能从后向前遍历的缺点
+
+
 
 typedef int ElemType;
 //定义双向链表-结构体类型
@@ -148,7 +153,7 @@ void DListPrint(DLinkList DL)
 
 int main()
 {
-	DLinkList DL;
+	DLinkList DL;//头结点
 	bool ret;
 
 	//头插法

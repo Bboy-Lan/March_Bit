@@ -14,6 +14,11 @@
 typedef int Elemtype;//这种自定义更方便
 
 
+//注意：
+//插入要考虑元素是否在区间以内 并且是不是超出了范围 即 没有这么大的空间
+//删除除了考虑元素是否在区间内以外 并且 有没有元素给他删 即 原本是否为空
+
+
 typedef struct 
 {
 	Elemtype date[MaxSize];//定义数组 用于存储元素
@@ -52,6 +57,7 @@ bool ListDelete(SqList &L,int i , Elemtype &del)//删除元素操作
 		L.date[j-1] = L.date[j];//从i的位置依次把元素往前覆盖
 	}
 	L.length--;
+	return true;
 
 }
 //元素的查找

@@ -24,6 +24,7 @@
     <ProjectGuid>{0ba9ba10-2cec-41a5-98fa-e0a4c17f0557}</ProjectGuid>
     <RootNamespace>Litter</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Litter_草稿</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
