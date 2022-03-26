@@ -65,6 +65,7 @@ bool StackEmpty(SqStack S)//只去读 不需要加引用
 bool Push(SqStack& S,ElemType x)
 {
 	if (S.top == MaxSize - 1)
+	//注意这里的判断 因为不是循环 而且 S.Top的值每次都是记录变化的 所以不用区间
 	{
 		return false;//栈满了
 	}
