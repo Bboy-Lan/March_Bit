@@ -4,39 +4,13 @@
 #include<stdlib.h>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //栈、队列
 
 //栈 - 先进后出
 //用链表实现栈 -考虑头插法 和每次删除头结点 因为头插法是倒序打印的 
 //函数里面调用函数时 所需要的参数不能忘记
 
-#define MaxSize 50
+#define MaxSize 10
 typedef int ElemType;
 
 typedef struct

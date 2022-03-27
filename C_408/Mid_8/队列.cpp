@@ -5,7 +5,8 @@
 //队列 FIFO --在表的一端进行插入 、另一端进行删除
 //对头-Front出队、对尾-Rear入队
 
-//循环队列
+//循环队列--它的循环是通过 取余 % 操作实现的
+
 #define MaxSize 5
 typedef int ElemType;
 
@@ -23,7 +24,6 @@ void IniQueue(SqQueue &Q)
 	Q.front = Q.rear = 0;
 }
 
-
 //判断是否为空
 bool isEmpty(SqQueue Q)
 {
@@ -35,7 +35,6 @@ bool isEmpty(SqQueue Q)
 		return false;
 }
 
-
 //入队
 bool EnQueue(SqQueue& Q, ElemType x)
 {
@@ -46,8 +45,8 @@ bool EnQueue(SqQueue& Q, ElemType x)
 	Q.data[Q.rear] = x;
 	Q.rear = (Q.rear + 1) % MaxSize;//向后移动一个
 	return true;
-}
 
+}
 
 //出队
 bool DeQueue(SqQueue& Q, ElemType &x)
@@ -63,8 +62,6 @@ bool DeQueue(SqQueue& Q, ElemType &x)
 	return true;
 
 }
-
-
 
 
 
