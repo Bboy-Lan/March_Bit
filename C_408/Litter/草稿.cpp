@@ -1,26 +1,31 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
-#include<stdio.h>
+#include<stdlib.h>
 
-//栈 -队列
+
+//队列 --链表
 
 typedef int ElemType;
-#define MaxSize 5
 
-//新建循环队列结构体
+typedef struct LinkNode {
+	ElemType data;
+	struct LinkNode* next;
+}LinkNode;
+
 typedef struct {
-	ElemType data[MaxSize];
-	int front, rear;
-}SqQueue;
+	LinkNode* front, * rear;//表示链表头链表尾
+}LinkQueue;
 
-//初始化队列
-void IniQueue(SqQueue& Q)
+//初始化对列链表
+void InitQueue(LinkQueue& Q)
 {
-	Q.front = Q.rear = 0;
+	//头和尾指向同一个新开辟的结点
+	Q.front = Q.rear = (LinkNode*)malloc(sizeof(LinkNode));
+	Q.front->next = NULL;//头结点的next指针为NULL
 }
 
-//判断队列是否为空
-bool isQEmpty(SqQueue Q)
+//判断是否为空
+bool isEmpty(LinkQueue Q)
 {
 	if (Q.front == Q.rear)
 		return true;
@@ -28,116 +33,51 @@ bool isQEmpty(SqQueue Q)
 		return false;
 }
 
-//入队
-bool EnQueue(SqQueue& Q, ElemType x)
+//入队-尾插法
+void EnQueue(LinkQueue& Q, ElemType x)
 {
-	//首先判断是否队满
-	if (Q.front == (Q.rear + 1) % MaxSize)
-		return false;
-	
-	Q.data[Q.rear + 1] = x;
-	Q.rear = (Q.rear + 1) % MaxSize;
-	
-	return true;
+	//开辟新插入元素所需要的空间
+	LinkNode* s = (LinkNode*)malloc(sizeof(LinkNode));
+	s->data = x;
+	s->next = NULL;
+
+	Q.rear->next = s;//表示由前一个元素指向后一个元素
+	Q.rear = s;
+
 }
 
-//出队
-bool DeQueue(SqQueue& Q, ElemType& x)
+//出队 - 头部删除法
+
+bool DeQueue(LinkQueue& Q, ElemType& x)
 {
-	//判断是否为空
-	if (isQEmpty(Q))
+	//先判断队列是否为空
+	if (Q.front == Q.rear)
 		return false;
+	LinkNode* p = Q.front->next;//头结点的下一个位置
 
-	x = Q.data[Q.front + 1];
-	Q.front = (Q.front + 1) % MaxSize;
+	x = p->data;
+	Q.front->next = p->next;//还需要看删除的是否是最后一个元素
+	if (Q.rear == p)
+		Q.rear = Q.front;//当最后一个元素删除 队列为空 需要将rear 重置至和初始时一样 即 队列为空 rear  =  front
+	free(p);
 
-	return true;
-}
-
-
-//定义一个栈结构体
-typedef struct {
-	ElemType data[MaxSize];
-	int Top;
-}SqStack;
-
-//初始化栈
-void IniStack(SqStack &S)
-{
-	S.Top = -1;
-}
-
-//判断栈是否为空
-bool isEmpty(SqStack S)
-{
-	if (-1 == S.Top)
-		return true;
-	else
-		return false;
-}
-
-//入栈
-bool Stack_Push(SqStack &S, ElemType x)
-{
-	if (S.Top == MaxSize -1)//栈满了
-		return false;
-
-	S.data[++S.Top] = x;
-	return true;
-}
-
-//出栈
-bool Stack_Pop(SqStack& S, ElemType &x)
-{
-	if (isEmpty(S))
-		return false;
-	x = S.data[S.Top--];
 
 	return true;
 }
-
-
 
 int main()
 {
-	SqStack S;
-	ElemType x;
-//新建一个栈，读取标准输入3个整数3 4 5，入栈3 4 5，依次出栈,打印 5 4 3
-	IniStack(S);
+	//考虑一下为什么用尾插法新建链表 -- 先进先出 更方便
 
-	for (int i = 0; i < 3; i++)
-	{
-		scanf("%d", &x);
-		Stack_Push(S, x);
-	}
+	LinkQueue Q;//注意不是 LinkNode
+	//初始化队列链表
+	InitQueue(Q);
 
-	for (int i = 0; i < 3; i++)
-	{
-		Stack_Pop(S, x);
-		printf("%2d", x);
-	}
-	printf("\n");
-
-
-
-	//读取标准输入3 4 5 6 7，入队7时，队满，打印false，然后依次出队，输出 3 4 5 6
-
-	SqQueue Q;
-	IniQueue(Q);
-
-	while (Q.front != (Q.rear + 1) % MaxSize)//3 4 5 6 7 
-	{
-		scanf("%d", &x);
-		EnQueue(Q, x);
-	}
-	printf("false\n");
-
-
-	while (DeQueue(Q, x))
-	{
-		printf("%2d", x);
-	}
-
+	EnQueue(Q, 3);
+	EnQueue(Q, 4);
+	EnQueue(Q, 5);
+	EnQueue(Q, 6);
+	EnQueue(Q, 7);
 
 	return 0;
 }
