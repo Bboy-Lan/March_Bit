@@ -141,9 +141,12 @@
   <ItemGroup>
     <ClCompile Include="二叉树.cpp" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <ClInclude Include="function.h" />
   </ItemGroup>
+=======
+>>>>>>> b300ae0c5a8df2aff70c00c36630c7160886c625
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

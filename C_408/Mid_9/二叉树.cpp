@@ -1,4 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
+<<<<<<< HEAD
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -17,6 +18,10 @@ typedef struct tag {
 	BiTree p;
 	struct tag* pnext;
 }tag_t,*ptag_t;
+=======
+
+//¶þ²æÊ÷
+>>>>>>> b300ae0c5a8df2aff70c00c36630c7160886c625
 
 
 int main()
