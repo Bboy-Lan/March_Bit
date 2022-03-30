@@ -10,7 +10,7 @@
 
 //善用调试 看下每步代码的执行效果是否符合预期
 
-#define MaxSize 50
+#define MaxSize 10
 typedef int Elemtype;//这种自定义更方便
 
 
