@@ -19,12 +19,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
-<<<<<<< HEAD
   <ItemGroup>
     <ClInclude Include="function.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
-=======
->>>>>>> b300ae0c5a8df2aff70c00c36630c7160886c625
 </Project>

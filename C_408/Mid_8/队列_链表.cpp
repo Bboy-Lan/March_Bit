@@ -16,7 +16,7 @@ typedef struct {
 	LinkNode* front, * rear;//表示链表头链表尾
 }LinkQueue;
 
-//初始化对列链表
+//初始化队列链表
 void InitQueue(LinkQueue& Q)
 {
 	//头和尾指向同一个新开辟的结点
