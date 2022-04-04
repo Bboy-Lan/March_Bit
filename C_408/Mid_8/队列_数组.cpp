@@ -1,6 +1,12 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 
+//循环队列应该是可以只表示逻辑上的，但是基本循环队列都默认数组实现 
+
+//因此循环队列是存储结构
+
+
+
 
 //队列 FIFO --在表的一端进行插入 、另一端进行删除
 //对头-Front出队、对尾-Rear入队
@@ -16,6 +22,7 @@ typedef struct {
 	ElemType data[MaxSize];//数组 存储 MaxSize -1 个元素
 	//必须空出一个用于判断队列是否已经装满
 	int front, rear;//队列头/队列尾
+	//有些时候为了不浪费多出的那个空间 还需要再定义一个变量 用于判断
 
 }SqQueue;
 
@@ -53,7 +60,7 @@ bool EnQueue(SqQueue& Q, ElemType x)
 //出队
 bool DeQueue(SqQueue& Q, ElemType &x)
 {
-	if (Q.front == Q.rear)
+	if (Q.front == Q.rear)//规定好的
 	{
 		return false;
 	}
